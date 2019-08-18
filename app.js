@@ -13,7 +13,11 @@ bot.on('message', function (event) {
     // event.message.text 是使用者傳給 bot 訊息
     // 使用 event.reply (要回傳的訊息) 方法可以將訊息回傳給使用者
 
-    var replayMsg = `Hello 你剛才說的是 : ${event.message.text}`;
+    // var replayMsg = `Hello 你剛才說的是 : ${event.message.text}`;
+    const inputNum = Number(`${event.message.text}`)
+    console.log(`inputNum : ${inputNum}`)
+    // replayMsg = inputNum !== NaN ? `輸入數字的次方值是 ${inputNum * inputNum}` : '輸入內容非數字，請確認~'
+    replayMsg = !isNaN(`${inputNum}`) ? `輸入數字的次方值是 ${inputNum * inputNum}` : '輸入內容非數字，請確認~'
 
     event.reply(replayMsg).then(function (data) {
         //訊息回傳成功的處理
